@@ -3,25 +3,25 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
     <Button
-        android:id="@+id/meme1"
+        android:id="@+id/meme1_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/meme1"
-        android:onClick="true"/>
+        android:onClick="onClick"/>
     <Button
-        android:id="@+id/meme2"
+        android:id="@+id/meme2_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/meme2"
         android:onClick="true"/>
     <Button
-        android:id="@+id/meme3"
+        android:id="@+id/meme3_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/meme3"
         android:onClick="true"/>
     <Button
-        android:id="@+id/meme4"
+        android:id="@+id/meme4_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/meme4"

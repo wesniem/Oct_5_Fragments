@@ -1,10 +1,11 @@
 package nyc.c4q.wesniemarcelin.memester_oct_5;
 
 import android.app.Activity;
-import android.app.Fragment;
-import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,26 +29,59 @@ public class ChooserFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        View view = inflater.inflate(R.layout.fragment_chooser, container, false);
+        View view = inflater.inflate(R.layout.button_chooser, container, false);
         getActivity();
         return view;
     }
 
     public void onViewCreated(View view, Bundle savedInstanceState){
         super.onViewCreated(view, savedInstanceState);
-        meme1 = (Button) view.findViewById(R.id.meme1);
-        meme2 = (Button) view.findViewById(R.id.meme2);
-        meme3 = (Button) view.findViewById(R.id.meme3);
-        meme4 = (Button) view.findViewById(R.id.meme4);
+        meme1 = (Button) view.findViewById(R.id.meme1_btn);
+        meme2 = (Button) view.findViewById(R.id.meme2_btn);
+        meme3 = (Button) view.findViewById(R.id.meme3_btn);
+        meme4 = (Button) view.findViewById(R.id.meme4_btn);
 
 
         meme1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){
-                Activity activity = getActivity();
-                FragmentManager fragmentManager = activity.getFragmentManager();
-                fragmentManager.beginTransaction().replace(R.id.activity_main, new ArcherFragment());
+            public void onClick(View view){
+                //Navigates to first meme
+                AppCompatActivity activity = (AppCompatActivity) getActivity();
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main_container, new ArcherFragment(),TAG).commit();
+            }
+        });
+
+        meme2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //Navigates to second meme
+                AppCompatActivity activity = (AppCompatActivity) getActivity();
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main_container, new CupcakeFragment(), TAG).commit();
+
+            }
+        });
+
+        meme3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Navigates to third meme
+                AppCompatActivity activity = (AppCompatActivity) getActivity();
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main_container, new ProgramMeme(),TAG).commit();
+            }
+        });
+
+        meme4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Navigates to fourth meme
+                AppCompatActivity activity = (AppCompatActivity) getActivity();
+                FragmentManager fragmentManager = activity.getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.main_container, new TravelMeme(), TAG).commit();
             }
         });
     }
+
 }
